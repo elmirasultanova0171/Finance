@@ -15,7 +15,7 @@ public:
     }
 
     virtual void Advice() {  
-                             //Function overriding 
+                              
     }
 
 
@@ -56,7 +56,7 @@ public:
         return (temp);
     }
 
-    void debt_(double& difference) {
+    void debt_(double& difference) {   //function overriding
 
         bool debt;
 
@@ -69,14 +69,40 @@ public:
 
             difference = difference * -1;
 
-            cout << "You are " << difference << " euros in debt." << endl;
+            cout << "You spent " << difference << "ˆ more than you have earned this year." << endl; //more profound
+            cout << "Please refer to the advice below." << endl;
         }
 
     }
 
-    void Advice() {
+    void Advice() {   //function overriding
 
-         
+        if (h < 0) {
+            cout << "You spend " << h * -1 << "ˆ more on housing then you could be spending" << endl;
+            cout << "If you are a student consider staying in a dorm," <<
+                " otherweise you may find rooms with shared commodities for cheaper prices" << endl;
+        }
+
+        if (t < 0) {
+            cout << "It appears that you spend " << t * -1 << "ˆ more on transportation then you could have." << endl;
+            cout << "Consider buying a montly ticket for public transportation and avoid ordering a taxi." << endl;
+        }
+
+        if (f < 0) {
+            cout << "You spend " << f * -1 << "ˆ more on food than estimated." << endl;
+            cout << "Firstly try your best to avoid eating outside. Additionally, avoid expensive grocery stores such as IKI" <<
+                " and reduce the purchase of unhealthy or unnecessary products" << endl;
+        }
+
+        if (o < 0) {
+            cout << "You have spent " << o * -1 << "ˆ more on other purchases then estimated." << endl;
+            cout << "This is not a negative showing if you are spending what you have saved in the past." << endl;
+        }
+
+        if (w < 0) {
+            cout << "You earn less than the estinated minimum wage in Lithuania." << endl;
+            cout << "If you are working 40 hours a week consider talking to your employer about the salary." << endl;
+        }
 
 
     }
