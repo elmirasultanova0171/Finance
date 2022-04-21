@@ -9,9 +9,9 @@ public:
     
     double difference;
 
-    virtual bool debt_(double& difference) {
+    virtual void debt_(double& difference) {
        
-        return false;
+         
     }
 
     virtual void Advice() {  
@@ -46,49 +46,44 @@ public:
     Minimum operator-(Minimum m)
     {
         Minimum temp;
-
-        if (h - m.h < 0) {
-            temp.h = h - m.h;
-        }
-        if (t - m.t < 0) {
-            temp.t = t - m.t;
-        }
-        if (f - m.f < 0) {
-            temp.f = f - m.f;
-        }
+         
+        temp.h = h - m.h;
+        temp.t = t - m.t;
+        temp.f = f - m.f;
+        temp.o = o - m.o;
+        temp.w = w - m.w;
 
         return (temp);
     }
 
-    bool debt_(double& difference) {
+    void debt_(double& difference) {
+
+        bool debt;
 
         difference = w - (o + f + t + h);
         if (difference > 0) {
-            return false;
+            debt = false;
         }
         else {
-            return true;
+            debt = true;
+
+            difference = difference * -1;
+
+            cout << "You are " << difference << " euros in debt." << endl;
         }
 
     }
 
     void Advice() {
 
-        bool debt = debt_(difference);
-
-        if (debt == true) {
-            difference = difference * -1;
-
-            cout << "You are " << difference << " euros in debt." << endl;
-        }
-
+         
 
 
     }
     
-    void show() {
+    /*void show() {
         cout << h<<"h "<<t<<"t "<<f<<"f "<<o<<"o "<<w<<"w ";
-    }
+    }*/
 
 
 };
@@ -96,21 +91,31 @@ public:
 int main()
 {
     double h1, t1, f1, o1, w1;
-    bool debt1;
+ 
+    //standarts
+
+    Minimum MIN_standart(140, 29, 250, 130, 650);
+
+    //Intro
 
     cout << "instert text";
 
-    cin >> h1 >> t1 >> f1 >> o1 >> w1;
+    cin >> h1 >> t1 >> f1 >> o1 >> w1;   //these inputs set limits
 
-    if (w1 <= 775) {
+    //Execute
 
-        Minimum money(h1, t1, f1, o1, w1);
-        Minimum st(1, 2, 1, 4, 1);
+    if (w1 <= 775) {  //For Minimum
+
+        Minimum MY_money(h1, t1, f1, o1, w1);
+        
         Minimum r;
-            //money.Advice();
-        r = st < money;
-        r.show();
+            
+        r = MIN_standart - MY_money;
+        
+        r.Advice();
     }
+
+
 
 
 }
