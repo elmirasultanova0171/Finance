@@ -1,7 +1,7 @@
-                         //later they will be divided to header files
+                          
 #include <iostream>
 #include <vector>
-
+ 
 using namespace std;
 
 class Finance {           
@@ -9,12 +9,16 @@ class Finance {
 
 public:
     
-    double difference;
+    double difference, difference2;
     bool debt;
 
     virtual void Advice_(double& difference, bool& debt) = 0;
 
     virtual void Expenditure() = 0;
+
+    void getvalue(double x) {
+        difference2 = x;
+    }
 
    
 
@@ -123,20 +127,14 @@ public:
 
 };
 
-class Lower_Medium {
+class Lower_Medium: public Finance {
 private:
 
-    double h, t, f, o, w, difference2;
+    double h, t, f, o, w;
 
 public:
 
-    double difference;
-    bool debt;
-
-    void getvalue(double x) {
-        difference2 = x;
-    }
-
+    
     Lower_Medium() {
 
     }
@@ -225,19 +223,13 @@ public:
     }
 };
 
-class Upper_Medium {
+class Upper_Medium : public Finance {
 private:
 
     double h, t, f, o, w;
 
 public:
-
-    double difference, difference2;
-    bool debt;
-
-    void getvalue(double x) {
-        difference2 = x;
-    }
+ 
 
     Upper_Medium() {
 
@@ -351,7 +343,7 @@ public:
     }
 }; 
  
-class High {
+class High : public Finance {
 
 private:
 
@@ -359,12 +351,7 @@ private:
 
 public:
 
-    double difference, difference2;
-    bool debt;
-
-    void getvalue(double x) {
-        difference2 = x;
-    }
+   
 
     High() {
 
@@ -526,7 +513,7 @@ public:
 int main()
 {
     double h1, t1, f1, o1, w1;
-    int count;
+    int count=0;
 
     vector<double> MIN_V {140, 29, 230, 130, 534};
     vector<double> LM_V{350, 29, 420, 200, 1000};
@@ -646,10 +633,7 @@ int main()
         comp3.Expenditure();
 
     }
-
-
-
-
+ 
 }
 
  
