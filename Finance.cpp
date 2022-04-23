@@ -4,7 +4,7 @@
 
 using namespace std;
 
-class Finance {          //parent
+class Finance {           
 
 
 public:
@@ -12,15 +12,10 @@ public:
     double difference;
     bool debt;
 
-    virtual void debt_(double& difference, bool& debt) = 0;
+    virtual void Advice_(double& difference, bool& debt) = 0;
 
-    virtual void Advice() = 0;
+    virtual void Expenditure() = 0;
 
-
-
- ///protected:
-
-    
    
 
 };
@@ -61,7 +56,7 @@ public:
         return (temp);
     }
 
-    void debt_(double& difference, bool &debt) {   //function overriding
+    void Advice_(double& difference, bool &debt) {   //function overriding
          
         difference = w - (o + f + t + h);
         if (difference > 0) {
@@ -80,18 +75,12 @@ public:
 
         if (debt == false) {
             cout << "You have saved " << difference << " euros this month";
-            if (difference >= 100) {
-                cout << "It is more than the estimated amount of savings for your wage range";
-            }
-            if (difference < 100) {
-                cout << "It is " << 100 - difference << " euros less than the estimated savings, you may"
-                    << " refer to the information below to improve these results.";
-            }
+             
         }
 
     }
 
-    void Advice() {   //function overriding
+    void Expenditure() {   //function overriding
 
         if (h < 0) {
             cout << "You spend " << h * -1 << " euros more on housing then you could be spending" << endl;
@@ -177,7 +166,7 @@ public:
         return (temp);
     }
 
-    void debt_(double& difference, bool &debt) { 
+    void Advice_(double& difference, bool &debt) { 
 
        // Lower_Medium min_money(140, 29, 250, 130, w);
 
@@ -186,13 +175,6 @@ public:
             debt = false;
 
             cout << "You have saved " << difference << " euros this month";
-            if (difference >= 171) {                                                          //n s
-                cout << "It is more than the estimated amount of savings for your wage range";
-            }
-            if (difference < 171) {                                                           //n s
-                cout << "It is " << 171 - difference << " euros less than the estimated savings" << endl;
-
-            }
 
         }
         else {
@@ -211,7 +193,7 @@ public:
  
     }
 
-    void Advice() {   //function overriding
+    void Expenditure() {   //function overriding
 
         if (h < 0) {
             cout << "You spent " << h * -1 << " euros more on housing then you could be spending" << endl;
@@ -286,7 +268,7 @@ public:
         return (temp);
     }
 
-    void debt_(double& difference, bool& debt) {
+    void Advice_(double& difference, bool& debt) {
 
           //change
 
@@ -295,13 +277,7 @@ public:
             debt = false;
 
             cout << "You have saved " << difference << " euros this month";
-            if (difference >= 295) {                                                          //n s
-                cout << "It is more than the estimated amount of savings for your wage range";
-            }
-            if (difference < 295) {                                                           //n s
-                cout << " It is " << 295 - difference << " euros less than the estimated savings" << endl;
-
-            }
+             
 
         }
         else {
@@ -313,7 +289,7 @@ public:
             cout << "Please refer to the advice below." << endl;
 
         }
-        int years = (36000 / difference2) / 12;
+        int years = (30000 / difference2) / 12;
         cout << " If you would spend as much as the estimated Lower Medium wage individual you can save " << difference2 << " per month.";
         cout << " This makes " << difference2 * 12 << " euros in one year."<<endl;
         if (years > 0) {
@@ -327,7 +303,7 @@ public:
 
     }
 
-    void Advice() {   //function overriding
+    void Expenditure() {   //function overriding
 
         if (h < 0) {
             cout << "You spent " << h * -1 << " euros more on housing then you could be spending" << endl;
@@ -373,24 +349,198 @@ public:
 
 
     }
+}; 
+ 
+class High {
+
+private:
+
+    double h, t, f, o, w;
+
+public:
+
+    double difference, difference2;
+    bool debt;
+
+    void getvalue(double x) {
+        difference2 = x;
+    }
+
+    High() {
+
+    }
+
+    High(double housing, double transport, double food, double other, double wage) {
+
+        h = housing;
+        t = transport;
+        f = food;
+        o = other;
+        w = wage;
+
+
+    }
+
+
+    High operator-(High m)
+    {
+        High temp;
+
+        temp.h = h - m.h;                 //comparisons
+        temp.t = t - m.t;
+        temp.f = f - m.f;
+        temp.o = o - m.o;
+        temp.w = w - m.w;
+
+        return (temp);
+    }
+
+    void Advice_(double& difference, bool& debt) {
+
+        //change
+
+        difference = w - (o + f + t + h);
+        if (difference > 0) {
+            debt = false;
+
+            cout << "You have saved " << difference << " euros this month";
+             
+
+        }
+        else {
+            debt = true;
+
+            difference = difference * -1;
+
+            cout << "You spent " << difference << " euros more than you have earned this year." << endl;
+            cout << "Please refer to the advice below." << endl;
+
+        }
+        int years = (45000 / difference2) / 12;
+        int years_h = (16666 / difference2);    //years to buy a house
+
+        cout << " If you would spend as much as the estimated Upper Medium wage individual you can save " << difference2 << " per month.";
+        cout << " This makes " << difference2 * 12 << " euros in one year." << endl;
+        if (years > 0) {
+            cout << " This means that if this money is saved carefully you may purchase a new car after "
+                << years + 1 << " years." << endl;
+        }
+        else {
+            cout << "This means that if this money is saved carefully you may purchase a new car in less than a year" << endl;
+        }
+
+        if (difference2 > 3995) {
+            if (years > 0) {
+                cout << " You may purchase an apartment after "
+                    << years_h + 1 << " years." << endl;
+            }
+            else {
+                cout << "You may purchase an apartment in less than a year" << endl;
+            }
+        }
+
+
+    }
+
+    void Expenditure() {   //function overriding
+
+        if (debt == false) {
+
+            if (difference > 1550) {
+                cout << "Congratulations, you did not overspend." << endl;
+
+                if (h > 0) {
+                    cout << "You spent less than the standart expenditure on housing, you could be spending " << h
+                        << " euros more." << endl;
+                }
+
+                if (t > 0) {
+                    cout << "You spent less than the standart expenditure on transport, you could be spending " << t
+                        << " euros more." << endl;
+                }
+
+                if (f > 0) {
+                    cout << "You spent less than the standart expenditure on food, you could be spending " << f
+                        << " euros more." << endl;
+                }
+
+                if (o > 0) {
+                    cout << "You spent less than the standart expenditure on other necessities, you could be spending " << o
+                        << " euros more." << endl;
+                }
+
+            }
+
+            if ((h > 0) && (t > 0) && (f > 0) && (o > 0) && (difference < 1550)) {
+                cout << "Congratulations, you did not overspend, however you could save more." << endl;
+
+                if (h < 0) {
+                    cout << "You spent " << h * -1 << " euros more on housing then you could be spending" << endl;
+
+                }
+
+                if (t < 0) {
+                    cout << "It appears that you spend " << t * -1 << " euros more on transportation then you could have." << endl;
+
+                }
+
+                if (f < 0) {
+                    cout << "You spent " << f * -1 << " euros more on food than estimated." << endl;
+
+                }
+
+                if (o < 0) {
+                    cout << "You have spent " << o * -1 << " euros more on other purchases then estimated." << endl;
+
+                }
+
+            }
+        }
+        else {
+            if (h < 0) {
+                cout << "You spent " << h * -1 << " euros more on housing then you could be spending" << endl;
+
+            }
+
+            if (t < 0) {
+                cout << "It appears that you spend " << t * -1 << " euros more on transportation then you could have." << endl;
+
+            }
+
+            if (f < 0) {
+                cout << "You spent " << f * -1 << " euros more on food than estimated." << endl;
+
+            }
+
+            if (o < 0) {
+                cout << "You have spent " << o * -1 << " euros more on other purchases then estimated." << endl;
+
+            }
+        }
+
+    }
+
 };
+
 
 int main()
 {
     double h1, t1, f1, o1, w1;
-    int count=0;
-   // vector<int>* v = new vector<int>;
- 
-    //standarts
+    int count;
 
-    Minimum MIN_standart(140, 29, 250, 130, 650);
-    Lower_Medium LM_standart(350, 29, 420, 200, 1200);
-    Upper_Medium UM_standart(500, 350, 600, 300, 2000);
+    vector<double> MIN_V {140, 29, 230, 130, 534};
+    vector<double> LM_V{350, 29, 420, 200, 1000};
+    vector<double> UM_V{500, 300, 600, 300, 1700};
+    vector<double> H_V{2500, 950, 1000, 1700, 5700};
 
-    //Intro
+    Minimum MIN_standart( MIN_V[0], MIN_V[1], MIN_V[2], MIN_V[3], MIN_V[4]);
+    Lower_Medium LM_standart(LM_V[0], LM_V[1], LM_V[2], LM_V[3], LM_V[4]);
+    Upper_Medium UM_standart(UM_V[0], UM_V[1], UM_V[2], UM_V[3], UM_V[4]);
+    High H_standart(H_V[0], H_V[1], H_V[2], H_V[3], H_V[4]);
+
 
     cout << "Hello, this program will give you financial advice based on your wage and how you spend if you live in Lithuania."
-        <<"Please remember that this program assumes that your wage is not less than 550 euros, you have a full time job and"
+        <<"Please remember that this program assumes that your wage is not less than 534 euros (approximately minimum wage minus tax), you have a full time job and"
         <<"you only spend on yourself(you do not look after family)"
         <<"Additionally, remember to enter all values in Euros."<<endl;
 
@@ -419,7 +569,7 @@ int main()
         }
         cout << "Enter your mothly wage ";
         cin >> w1;
-        if (w1 >= 550) {
+        if (w1 >= MIN_V[4]) {
             count++;
         }
         if (count < 5) {
@@ -428,7 +578,7 @@ int main()
     } 
     
 
-    if (w1 <= 1000) {  //For Minimum
+    if (w1 <= LM_V[4]) {  //For Minimum
 
         Minimum MY_money(h1, t1, f1, o1, w1);
         
@@ -436,43 +586,64 @@ int main()
             
         comp = MIN_standart - MY_money;
 
-        MY_money.debt_(MY_money.difference, MY_money.debt);
+        MY_money.Advice_(MY_money.difference, MY_money.debt);
         
-        comp.Advice();
+        comp.Expenditure();
     }
 
-    if (w1 > 1000 && w1 <= 2000) { //For Lower Middle
+    if (w1 > LM_V[4] && w1 <= UM_V[4]) { //For Lower Middle
 
         Lower_Medium My_money1(h1, t1, f1, o1, w1);
         
         Lower_Medium comp1;
 
-        double diff = w1 - (130 + 250 + 29 + 140);
+        double diff;
+
+        diff = w1 - 130 - 250 - 29 - 140;
 
         My_money1.getvalue(diff);
 
         comp1 = LM_standart - My_money1;
       
-        My_money1.debt_(My_money1.difference, My_money1.debt);
-        comp1.Advice();
+        My_money1.Advice_(My_money1.difference, My_money1.debt);
+        comp1.Expenditure();
 
     }
 
-    if (w1 > 2000 && w1 <= 7000) { //For Upper Middle
+    if (w1 > UM_V[4] && w1 <= H_V[4]) { //For Upper Middle
 
         Upper_Medium My_money2(h1, t1, f1, o1, w1);
 
 
-        //Upper_Medium mid_money(350, 29, 420, 230, w1);
-        double diff2 = w1 - (230 + 420 + 29 + 350);
+        double diff2;
+          diff2 = w1 - 230 - 420 - 29 - 350;
+
             My_money2.getvalue(diff2);
 
         Upper_Medium comp2;
 
         comp2 = UM_standart - My_money2;
 
-        My_money2.debt_(My_money2.difference, My_money2.debt);
-        comp2.Advice();
+        My_money2.Advice_(My_money2.difference, My_money2.debt);
+        comp2.Expenditure();
+
+    }
+    if (w1 >= H_V[4]) { //For High
+
+        High My_money3(h1, t1, f1, o1, w1);
+         
+
+        double diff3;
+        diff3 = w1 - 300 - 600 - 305 - 500;
+
+        My_money3.getvalue(diff3);
+
+        High comp3;
+
+        comp3 = H_standart - My_money3;
+
+        My_money3.Advice_(My_money3.difference, My_money3.debt);
+        comp3.Expenditure();
 
     }
 
