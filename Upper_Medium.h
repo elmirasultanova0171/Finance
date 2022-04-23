@@ -59,12 +59,12 @@ public:
             difference = difference * -1;
 
             cout << "You spent " << difference << " euros more than you have earned this year." << endl;
-            cout << "Please refer to the advice below." << endl;
+            cout << "Please refer to your expenditure." << endl;
 
         }
         int years = (30000 / difference2) / 12;
         cout << " If you would spend as much as the estimated Lower Medium wage individual you can save " << difference2 << " per month.";
-        cout << " This makes " << difference2 * 12 << " euros in one year." << endl;
+        cout << " This makes " << difference2 * 12 << " euros in one month." << endl;
         if (years > 0) {
             cout << " This means that if this money is saved carefully you may purchase a decent car after "
                 << years + 1 << " years." << endl;
@@ -79,16 +79,16 @@ public:
     void Expenditure() {   //function overriding
 
         if (h < 0) {
-            cout << "You spent " << h * -1 << " euros more on housing then you could be spending" << endl;
+            cout << "You have spent " << h * -1 << " euros more on housing then you could be spending" << endl;
 
         }
         else {
-            cout << "You spent less than the standart expenditure on housing, you could be spending " << h
+            cout << "You have spent less than the standart expenditure on housing, you could be spending " << h
                 << " euros more." << endl;
         }
 
         if (t < 0) {
-            cout << "It appears that you spend " << t * -1 << " euros more on transportation then you could have." << endl;
+            cout << "It appears that you have spent " << t * -1 << " euros more on transportation then you could have." << endl;
 
         }
         else {
@@ -97,11 +97,11 @@ public:
         }
 
         if (f < 0) {
-            cout << "You spend " << f * -1 << " euros more on food than estimated." << endl;
+            cout << "You have spent " << f * -1 << " euros more on food than estimated." << endl;
 
         }
         else {
-            cout << "You spent less than the standart expenditure on food, you could be spending " << f
+            cout << "You have spent less than the standart expenditure on food, you could be spending " << f
                 << " euros more." << endl;
         }
 
@@ -110,7 +110,7 @@ public:
 
         }
         else {
-            cout << "You spent less than the standart expenditure on other necessities, you could be spending " << o
+            cout << "You have spent less than the standart expenditure on other necessities, you could be spending " << o
                 << " euros more." << endl;
         }
 

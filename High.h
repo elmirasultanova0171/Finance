@@ -59,8 +59,8 @@ public:
 
             difference = difference * -1;
 
-            cout << "You spent " << difference << " euros more than you have earned this year." << endl;
-            cout << "Please refer to the advice below." << endl;
+            cout << "You have spent " << difference << " euros more than you have earned this month." << endl;
+            cout << "Please refer to your expenditures" << endl;
 
         }
         int years = (45000 / difference2) / 12;

@@ -28,10 +28,10 @@ int main()
     High H_standart(H_V[0], H_V[1], H_V[2], H_V[3], H_V[4]);
 
 
-    cout << "Hello, this program will give you financial advice based on your wage and how you spend if you live in Lithuania."
-        <<"Please remember that this program assumes that your wage is not less than 534 euros (approximately minimum wage minus tax), you have a full time job and"
-        <<"you only spend on yourself(you do not look after family)"
-        <<"Additionally, remember to enter all values in Euros."<<endl;
+    cout << "Hello, this program will give you financial advice based on your wage and how you spend."
+        <<endl<<"Please remember that this program assumes that your wage is not less than 534 euros (please write your wage after tax),"
+        <<" you have a full time job and you only spend on yourself (you do not look after family)"
+        <<endl<<"Additionally, remember to enter all values in Euros."<<endl;
 
     for (int i=0; count < 5; i++ ) {
         count = 0;
@@ -56,13 +56,13 @@ int main()
         if (o1 >= 0) {
             count++;
         }
-        cout << "Enter your mothly wage ";
+        cout << "Enter your mothly wage (after taxation) ";
         cin >> w1;
         if (w1 >= MIN_V[4]) {
             count++;
         }
         if (count < 5) {
-            cout << "The values you have entered are invalid. Please review and enter valid values." << endl;
+            cout << "The values you have entered are invalid. Please review." << endl;
         }
     } 
     

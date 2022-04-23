@@ -52,8 +52,8 @@ public:
 
             difference = difference * -1;
 
-            cout << "You spent " << difference << " euros more than you have earned this year." << endl;
-            cout << "Please refer to the advice below." << endl;
+            cout << "You spent " << difference << " euros more than you have earned this month." << endl;
+            cout << "Please refer to your expenditures." << endl;
         }
 
         if (debt == false) {
@@ -66,13 +66,13 @@ public:
     void Expenditure() {   //function overriding
 
         if (h < 0) {
-            cout << "You spend " << h * -1 << " euros more on housing then you could be spending" << endl;
+            cout << "You have spent " << h * -1 << " euros more on housing then you could be spending" << endl;
             cout << "If you are a student consider staying in a dorm," <<
                 " otherweise you may find rooms with shared commodities for cheaper prices" << endl;
         }
 
         if (t < 0) {
-            cout << "It appears that you spend " << t * -1 << " euros more on transportation then you could have." << endl;
+            cout << "It appears that you have spent " << t * -1 << " euros more on transportation then you could have." << endl;
             cout << "Consider buying a montly ticket for public transportation and avoid ordering a taxi." << endl;
         }
 

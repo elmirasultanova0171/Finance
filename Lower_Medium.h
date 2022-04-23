@@ -42,7 +42,6 @@ public:
 
     void Advice_(double& difference, bool& debt) {
 
-        // Lower_Medium min_money(140, 29, 250, 130, w);
 
         difference = w - (o + f + t + h);
         if (difference > 0) {
@@ -56,8 +55,8 @@ public:
 
             difference = difference * -1;
 
-            cout << "You spent " << difference << " euros more than you have earned this year." << endl;
-            cout << "Please refer to the advice below." << endl;
+            cout << "You have spent " << difference << " euros more than you have earned this month." << endl;
+            cout << "Please refer to your expenditures." << endl;
 
         }
 
