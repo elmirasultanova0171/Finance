@@ -4,7 +4,7 @@
 #include "Finance.h"
 using namespace std;
 
-class Upper_Medium : public Finance {
+class Upper_Medium : public Finance  {
 private:
 
     double h, t, f, o, w;
