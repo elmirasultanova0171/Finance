@@ -16,7 +16,6 @@ public:
 
     virtual void Expenditure() = 0;
 
-//protected:
     double difference2;
     void getvalue(double x) {
         difference2 = x;

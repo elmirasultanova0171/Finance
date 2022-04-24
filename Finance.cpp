@@ -17,8 +17,8 @@ int main()
     double h1, t1, f1, o1, w1;
     int count=0;
 
-    vector<double> MIN_V {140, 29, 230, 130, 534};
-    vector<double> LM_V{350, 29, 420, 200, 1000};
+    vector<double> MIN_V {140, 29, 230, 130, 534};    //values in vectors 0 is housing, 1 is transport
+    vector<double> LM_V{350, 29, 420, 200, 1000};     //2 is food, 3 is other and 4 is salary
     vector<double> UM_V{500, 300, 600, 300, 1700};
     vector<double> H_V{2500, 950, 1000, 1700, 5700};
 
