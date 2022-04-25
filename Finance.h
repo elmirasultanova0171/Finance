@@ -4,23 +4,22 @@
 
 using namespace std;
 
-class Finance {           
+class Finance {
 
 
 public:
-    
-    double difference;  
+
+    double difference;
     bool debt;
+    double difference2, apartment, car, new_car;
 
     virtual void Advice_(double& difference, bool& debt) = 0;
 
     virtual void Expenditure() = 0;
 
-    double difference2;
     void getvalue(double x) {
         difference2 = x;
-    }
+    }    
 
-   
 
 };

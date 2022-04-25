@@ -21,12 +21,13 @@ int main()
     vector<double> LM_V{350, 29, 420, 200, 1000};     //2 is food, 3 is other and 4 is salary
     vector<double> UM_V{500, 300, 600, 300, 1700};
     vector<double> H_V{2500, 950, 1000, 1700, 5700};
-
+    
     Minimum MIN_standart( MIN_V[0], MIN_V[1], MIN_V[2], MIN_V[3], MIN_V[4]);
     Lower_Medium LM_standart(LM_V[0], LM_V[1], LM_V[2], LM_V[3], LM_V[4]);
     Upper_Medium UM_standart(UM_V[0], UM_V[1], UM_V[2], UM_V[3], UM_V[4]);
     High H_standart(H_V[0], H_V[1], H_V[2], H_V[3], H_V[4]);
 
+   
 
     cout << "Hello, this program will give you financial advice based on your wage and how you spend."
         <<endl<<"Please remember that this program assumes that your wage is not less than 534 euros (please write your wage after tax),"
@@ -49,7 +50,6 @@ int main()
         cin >> f1;
         if (f1 >= 0) {
             count++;
-            cout << 1;
         }
         cout << "Enter the expenditure in other nessesities ";
         cin >> o1;
@@ -67,7 +67,7 @@ int main()
     } 
     
 
-    if (w1 <= LM_V[4]) {  //For Minimum
+    if (w1 >= MIN_V[4] && w1<=LM_V[4]) {  //For Minimum
 
         Minimum MY_money(h1, t1, f1, o1, w1);
         
@@ -108,7 +108,8 @@ int main()
           diff2 = w1 - 230 - 420 - 29 - 350;
 
             My_money2.getvalue(diff2);
-
+           
+      
         Upper_Medium comp2;
 
         comp2 = UM_standart - My_money2;
@@ -126,7 +127,7 @@ int main()
         diff3 = w1 - 300 - 600 - 305 - 500;
 
         My_money3.getvalue(diff3);
-
+  
         High comp3;
 
         comp3 = H_standart - My_money3;

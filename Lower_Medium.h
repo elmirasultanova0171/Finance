@@ -47,22 +47,23 @@ public:
         if (difference > 0) {
             debt = false;
 
-            cout << "You have saved " << difference << " euros this month";
+            cout << "You have saved " << difference << " euros this month" << endl;
 
         }
         else {
             debt = true;
 
-            difference = difference * -1;
-
-            cout << "You have spent " << difference << " euros more than you have earned this month." << endl;
+            cout << "You have spent " << difference*-1 << " euros more than you have earned this month." << endl;
             cout << "Please refer to your expenditures." << endl;
 
         }
-
-        cout << " If you would spend as much as the estimated Minimum wage individual you can save " << difference2 << " per month.";
-        cout << " This makes " << difference2 * 12 << " euros in one year." << endl;
-
+        if (difference2>difference) {
+            cout << " If you would spend as much as the estimated Minimum wage individual you can save " << difference2 << " per month.";
+            cout << " This makes " << difference2 * 12 << " euros in one year." << endl;
+        }
+        else {
+            cout << " This makes " << difference2 * 12 << " euros in one year." << endl;
+        }
 
     }
 

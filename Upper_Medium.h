@@ -44,7 +44,6 @@ public:
     void Advice_(double& difference, bool& debt) {
 
         //change
-
         difference = w - (o + f + t + h);
         if (difference > 0) {
             debt = false;
@@ -56,23 +55,34 @@ public:
         else {
             debt = true;
 
-            difference = difference * -1;
-
-            cout << "You spent " << difference << " euros more than you have earned this year." << endl;
+            cout << "You spent " << difference * -1 << " euros more than you have earned this year." << endl;
             cout << "Please refer to your expenditure." << endl;
 
         }
         int years = (30000 / difference2) / 12;
-        cout << " If you would spend as much as the estimated Lower Medium wage individual you can save " << difference2 << " per month.";
-        cout << " This makes " << difference2 * 12 << " euros in one month." << endl;
-        if (years > 0) {
-            cout << " This means that if this money is saved carefully you may purchase a decent car after "
-                << years + 1 << " years." << endl;
+        double temp;
+
+        if (difference2 > difference) {
+            temp = difference2;
         }
         else {
-            cout << "This means that if this money is saved carefully you may purchase a decent car in less than a year" << endl;
+            temp = difference;
         }
 
+            cout << " If you would spend as much as the estimated Lower medium wage individual you can save " << temp << " per month.";
+            cout << " This makes " << temp * 12 << " euros in one year." << endl;
+        
+
+          if (years > 0) {
+            cout << " This means that if this money is saved carefully you may purchase a decent car after "
+                << years + 1 << " years." << endl;
+          }
+        
+          else {
+            cout << "This means that if this money is saved carefully you may purchase a decent car in less than a year" << endl;
+          }
+
+        
 
     }
 

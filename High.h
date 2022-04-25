@@ -11,8 +11,6 @@ private:
 
 public:
 
-
-
     High() {
 
     }
@@ -57,34 +55,41 @@ public:
         else {
             debt = true;
 
-            difference = difference * -1;
-
-            cout << "You have spent " << difference << " euros more than you have earned this month." << endl;
+           
+            cout << "You have spent " << difference*-1 << " euros more than you have earned this month." << endl;
             cout << "Please refer to your expenditures" << endl;
 
         }
-        int years = (45000 / difference2) / 12;
-        int years_h = (16666 / difference2);    //years to buy a house
-
-        cout << " If you would spend as much as the estimated Upper Medium wage individual you can save " << difference2 << " per month.";
-        cout << " This makes " << difference2 * 12 << " euros in one year." << endl;
-        if (years > 0) {
-            cout << " This means that if this money is saved carefully you may purchase a new car after "
-                << years + 1 << " years." << endl;
+        int years = (45000/ difference2) / 12;
+        int years_h = (200000 / difference2) / 12;    //years to buy a house
+        double temp;
+        if (difference2 > difference) {
+            temp = difference2;
         }
         else {
-            cout << "This means that if this money is saved carefully you may purchase a new car in less than a year" << endl;
+            temp = difference;
         }
-
-        if (difference2 > 3995) {
+            cout << " If you would spend as much as the estimated Upper Medium wage individual you can save " << temp << " per month.";
+            cout << " This makes " << temp * 12 << " euros in one year." << endl;
             if (years > 0) {
-                cout << " You may purchase an apartment after "
-                    << years_h + 1 << " years." << endl;
+                cout << " This means that if this money is saved carefully you may purchase a new car after "
+                    << years + 1 << " years." << endl;
             }
             else {
-                cout << "You may purchase an apartment in less than a year" << endl;
+                cout << "This means that if this money is saved carefully you may purchase a new car in less than a year" << endl;
             }
-        }
+
+            if (temp > 3995) {
+                if (years > 0) {
+                    cout << " You may purchase an apartment after "
+                        << years_h + 1 << " years." << endl;
+                }
+                else {
+                    cout << "You may purchase an apartment in less than a year" << endl;
+                }
+            }
+        
+        
 
 
     }

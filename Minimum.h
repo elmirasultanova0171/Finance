@@ -44,7 +44,7 @@ public:
         difference = w - (o + f + t + h);
         if (difference > 0) {
             debt = false;
-
+            cout << "You have saved " << difference << " euros this month." << endl;
 
         }
         else {
@@ -54,11 +54,6 @@ public:
 
             cout << "You spent " << difference << " euros more than you have earned this month." << endl;
             cout << "Please refer to your expenditures." << endl;
-        }
-
-        if (debt == false) {
-            cout << "You have saved " << difference << " euros this month";
-
         }
 
     }
@@ -85,11 +80,6 @@ public:
         if (o < 0) {
             cout << "You have spent " << o * -1 << " euros more on other purchases then estimated." << endl;
             cout << "This is not a negative showing if you are spending what you have saved in the past." << endl;
-        }
-
-        if (w < 0) {
-            cout << "You earn less than the estinated minimum wage in Lithuania." << endl;
-            cout << "If you are working 40 hours a week consider talking to your employer about the salary." << endl;
         }
 
         if ((h >= 0) && (t >= 0) && (f >= 0) && (o >= 0) && (w >= 0)) {
