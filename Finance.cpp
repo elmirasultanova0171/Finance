@@ -136,6 +136,37 @@ int main()
         comp3.Expenditure();
 
     }
+    cout << endl;
+    cout << "The standart values used for comparison." << endl;
+    cout << "-----------------------------------------------------" << endl;
+    cout << " Minimal income" << endl;
+    cout<< "Housing " << MIN_V[0] <<" euros"<< endl;
+    cout << "Transportation " << MIN_V[1] << " euros" << endl;
+    cout << "Food " << MIN_V[2] << " euros" << endl;
+    cout << "Other " << MIN_V[3] << " euros" << endl;
+    cout << "Wage range " << MIN_V[4] << "-" << LM_V[4]-1 << " euros" << endl;
+    cout << "-----------------------------------------------------" << endl;
+    cout << "Lower Medium income" << endl;
+    cout << "Housing " << LM_V[0] << " euros" << endl;
+    cout << "Transportation " << LM_V[1] << " euros" << endl;
+    cout << "Food " << LM_V[2] << " euros" << endl;
+    cout << "Other " << LM_V[3] << " euros" << endl;
+    cout << "Wage range " << LM_V[4] << "-" << UM_V[4]-1 << " euros" << endl;
+    cout << "-----------------------------------------------------" << endl;
+    cout << "Upper Medium income" << endl;
+    cout << "Housing " << UM_V[0] << " euros" << endl;
+    cout << "Transportation " << UM_V[1] << " euros" << endl;
+    cout << "Food " << UM_V[2] << " euros" << endl;
+    cout << "Other " << UM_V[3] << " euros" << endl;
+    cout << "Wage range " << UM_V[4] << "-" << H_V[4]-1 << " euros" << endl;
+    cout << "-----------------------------------------------------" << endl;
+    cout << "High income" << endl;
+    cout << "Housing " << H_V[0] << " euros" << endl;
+    cout << "Transportation " << H_V[1] << " euros" << endl;
+    cout << "Food " << H_V[2] << " euros" << endl;
+    cout << "Other " << H_V[3] << " euros" << endl;
+    cout << "Wage range " << H_V[4] << "- infinity" << " euros" << endl;
+    cout << "-----------------------------------------------------" << endl;
  
 }
 

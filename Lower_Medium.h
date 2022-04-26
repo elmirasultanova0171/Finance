@@ -89,7 +89,7 @@ public:
 
         }
 
-        if ((h > 0) && (t > 0) && (f > 0) && (o > 0)) {
+        if ((h >= 0) && (t >= 0) && (f >= 0) && (o >= 0)) {
             cout << "Congratulations, you did not overspend";
         }
 

@@ -82,8 +82,8 @@ public:
             cout << "This is not a negative showing if you are spending what you have saved in the past." << endl;
         }
 
-        if ((h >= 0) && (t >= 0) && (f >= 0) && (o >= 0) && (w >= 0)) {
-            cout << "Congratulations, your expenditure and wage meet the threshold" << endl;
+        if ((h >= 0) && (t >= 0) && (f >= 0) && (o >= 0)) {
+            cout << "Congratulations, your expenditure meets the threshold" << endl;
         }
 
 
