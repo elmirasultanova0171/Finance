@@ -48,6 +48,7 @@ public:
             debt = false;
 
             cout << "You have saved " << difference << " euros this month" << endl;
+            cout << " This makes " << difference * 12 << " euros in one year." << endl;
 
         }
         else {
@@ -61,21 +62,18 @@ public:
             cout << " If you would spend as much as the estimated Minimum wage individual you can save " << difference2 << " per month.";
             cout << " This makes " << difference2 * 12 << " euros in one year." << endl;
         }
-        else {
-            cout << " This makes " << difference2 * 12 << " euros in one year." << endl;
-        }
-
+       
     }
 
     void Expenditure() {   //function overriding
 
         if (h < 0) {
-            cout << "You spent " << h * -1 << " euros more on housing then you could be spending" << endl;
+            cout << "You spent " << h * -1 << " euros more on housing than you could be spending." << endl;
 
         }
 
         if (t < 0) {
-            cout << "It appears that you spend " << t * -1 << " euros more on transportation then you could have." << endl;
+            cout << "It appears that you spend " << t * -1 << " euros more on transportation than you could have." << endl;
 
         }
 
@@ -85,12 +83,12 @@ public:
         }
 
         if (o < 0) {
-            cout << "You have spent " << o * -1 << " euros more on other purchases then estimated." << endl;
+            cout << "You have spent " << o * -1 << " euros more on other purchases than estimated." << endl;
 
         }
 
         if ((h >= 0) && (t >= 0) && (f >= 0) && (o >= 0)) {
-            cout << "Congratulations, you did not overspend";
+            cout << "Congratulations, you did not overspend.";
         }
 
 

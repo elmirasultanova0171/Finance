@@ -11,7 +11,6 @@
 using namespace std;
 
 
-
 int main()
 {
     double h1, t1, f1, o1, w1;
@@ -19,9 +18,11 @@ int main()
 
     vector<double> MIN_V {140, 29, 230, 130, 534};    //values in vectors 0 is housing, 1 is transport
     vector<double> LM_V{350, 29, 420, 200, 1000};     //2 is food, 3 is other and 4 is salary
-    vector<double> UM_V{500, 300, 600, 300, 1700};
-    vector<double> H_V{2500, 950, 1000, 1700, 5700};
-    
+    vector<double> UM_V{500, 300, 600, 300, 1700};     //All deafult values are listed here so they can be changed easily
+    vector<double> H_V{2500, 950, 1000, 1700, 6150};
+
+    double car=30000, ncar=45000, apartment=200000;
+
     Minimum MIN_standart( MIN_V[0], MIN_V[1], MIN_V[2], MIN_V[3], MIN_V[4]);
     Lower_Medium LM_standart(LM_V[0], LM_V[1], LM_V[2], LM_V[3], LM_V[4]);
     Upper_Medium UM_standart(UM_V[0], UM_V[1], UM_V[2], UM_V[3], UM_V[4]);
@@ -30,9 +31,11 @@ int main()
    
 
     cout << "Hello, this program will give you financial advice based on your wage and how you spend."
-        <<endl<<"Please remember that this program assumes that your wage is not less than 534 euros (please write your wage after tax),"
-        <<" you have a full time job and you only spend on yourself (you do not look after family)"
-        <<endl<<"Additionally, remember to enter all values in Euros."<<endl;
+        <<endl<<"Please remember that this program assumes that your wage is not less than "<<MIN_V[4]
+        <<" euros (please write your wage after tax),"
+        <<" you have a full time job and you only spend on yourself (you do not look after family)."
+        <<endl<<"Additionally, when information on how you could spend is given remember, "
+        <<"it is based on standart expenditure and should be applied after overspendings (if any) are reduced. "<<endl;
 
     for (int i=0; count < 5; i++ ) {
         count = 0;
@@ -46,17 +49,17 @@ int main()
         if (t1 >= 0) {
             count++;
         }
-        cout << "Enter the montly expenditure on food ";
+        cout << "Enter the monthly expenditure on food ";
         cin >> f1;
         if (f1 >= 0) {
             count++;
         }
-        cout << "Enter the expenditure in other nessesities ";
+        cout << "Enter the expenditure in other necessities ";
         cin >> o1;
         if (o1 >= 0) {
             count++;
         }
-        cout << "Enter your mothly wage (after taxation) ";
+        cout << "Enter your monthly wage (after taxation) ";
         cin >> w1;
         if (w1 >= MIN_V[4]) {
             count++;
@@ -90,7 +93,7 @@ int main()
 
         diff = w1 - 130 - 250 - 29 - 140;
 
-        My_money1.getvalue(diff);
+        My_money1.getvalue(diff, apartment, car);
 
         comp1 = LM_standart - My_money1;
       
@@ -107,7 +110,7 @@ int main()
         double diff2;
           diff2 = w1 - 230 - 420 - 29 - 350;
 
-            My_money2.getvalue(diff2);
+            My_money2.getvalue(diff2, apartment, car);
            
       
         Upper_Medium comp2;
@@ -126,7 +129,7 @@ int main()
         double diff3;
         diff3 = w1 - 300 - 600 - 305 - 500;
 
-        My_money3.getvalue(diff3);
+        My_money3.getvalue(diff3, apartment, ncar);
   
         High comp3;
 

@@ -45,42 +45,44 @@ public:
 
         //change
         difference = w - (o + f + t + h);
+
+        int years2 = (car / difference2) / 12;
+        int years = (car / difference) / 12;
+
         if (difference > 0) {
             debt = false;
 
-            cout << "You have saved " << difference << " euros this month";
+            cout << "You have saved " << difference << " euros this month."<<endl;
+            cout << " This makes " << difference * 12 << " euros in one year." << endl;
+            if (years > 0) {
+                cout << " This means that if this money is saved carefully you may purchase a decent car after "
+                    << years + 1 << " years/year." << endl;
+            }
 
+            else {
+                cout << "This means that if this money is saved carefully you may purchase a decent car in less than a year" << endl;
+            }
 
         }
         else {
             debt = true;
 
             cout << "You spent " << difference * -1 << " euros more than you have earned this year." << endl;
-            cout << "Please refer to your expenditure." << endl;
+            cout << "Please refer to your expenditures." << endl;
 
         }
-        int years = (30000 / difference2) / 12;
-        double temp;
+ 
 
         if (difference2 > difference) {
-            temp = difference2;
+            cout << " If you would spend as much as the estimated Lower medium wage individual you can save " << difference2 << " per month.";
+            cout << " This makes " << difference2 * 12 << " euros in one year." << endl;
+            if ((years - years2 != 0)&&(years - years2 > 0)) {
+                cout << " This means that with spending less you may purchase a new car " << years - years2 << " years/year earlier." << endl;
+            }
         }
-        else {
-            temp = difference;
-        }
+  
 
-            cout << " If you would spend as much as the estimated Lower medium wage individual you can save " << temp << " per month.";
-            cout << " This makes " << temp * 12 << " euros in one year." << endl;
-        
-
-          if (years > 0) {
-            cout << " This means that if this money is saved carefully you may purchase a decent car after "
-                << years + 1 << " years." << endl;
-          }
-        
-          else {
-            cout << "This means that if this money is saved carefully you may purchase a decent car in less than a year" << endl;
-          }
+          
 
         
 
@@ -89,7 +91,7 @@ public:
     void Expenditure() {   //function overriding
 
         if (h < 0) {
-            cout << "You have spent " << h * -1 << " euros more on housing then you could be spending" << endl;
+            cout << "You have spent " << h * -1 << " euros more on housing then you could be spending." << endl;
 
         }
         else {
@@ -98,7 +100,7 @@ public:
         }
 
         if (t < 0) {
-            cout << "It appears that you have spent " << t * -1 << " euros more on transportation then you could have." << endl;
+            cout << "It appears that you have spent " << t * -1 << " euros more on transportation than you could have." << endl;
 
         }
         else {

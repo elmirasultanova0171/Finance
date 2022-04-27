@@ -61,29 +61,29 @@ public:
     void Expenditure() {   //function overriding
 
         if (h < 0) {
-            cout << "You have spent " << h * -1 << " euros more on housing then you could be spending" << endl;
+            cout << "You have spent " << h * -1 << " euros more on housing than you could be spending." << endl;
             cout << "If you are a student consider staying in a dorm," <<
-                " otherweise you may find rooms with shared commodities for cheaper prices" << endl;
+                " otherwise, you may find rooms with shared commodities for cheaper prices." << endl;
         }
 
         if (t < 0) {
-            cout << "It appears that you have spent " << t * -1 << " euros more on transportation then you could have." << endl;
+            cout << "It appears that you have spent " << t * -1 << " euros more on transportation than you could have." << endl;
             cout << "Consider buying a montly ticket for public transportation and avoid ordering a taxi." << endl;
         }
 
         if (f < 0) {
             cout << "You spend " << f * -1 << " euros more on food than estimated." << endl;
-            cout << "Firstly try your best to avoid eating outside. Additionally, avoid expensive grocery stores such as IKI" <<
-                " and reduce the purchase of unhealthy or unnecessary products" << endl;
+            cout << "Firstly, try your best to avoid eating outside. Additionally, avoid expensive grocery stores such as IKI" <<
+                " and reduce the purchase of unhealthy or unnecessary products." << endl;
         }
 
         if (o < 0) {
-            cout << "You have spent " << o * -1 << " euros more on other purchases then estimated." << endl;
+            cout << "You have spent " << o * -1 << " euros more on other purchases than estimated." << endl;
             cout << "This is not a negative showing if you are spending what you have saved in the past." << endl;
         }
 
         if ((h >= 0) && (t >= 0) && (f >= 0) && (o >= 0)) {
-            cout << "Congratulations, your expenditure meets the threshold" << endl;
+            cout << "Congratulations, your expenditure meets the threshold." << endl;
         }
 
 

@@ -4,21 +4,35 @@
 
 using namespace std;
 
-class Finance {
+class IFinance {
 
+public:
+
+    virtual void Expenditure() = 0;
+
+    virtual void getvalue(double x, double a, double c) = 0;
+};
+ 
+class Finance :public IFinance {
 
 public:
 
     double difference;
     bool debt;
-    double difference2, apartment, car, new_car;
+    double difference2, apartment, car;
 
-    virtual void Advice_(double& difference, bool& debt) = 0;
+    void Advice_(double& difference, bool& debt) {
+        cout << "Advice on savings" << endl;
+     }
 
-    virtual void Expenditure() = 0;
+     void Expenditure() {
+         cout << "Expenditure "<<endl;
+     }
 
-    void getvalue(double x) {
-        difference2 = x;
+    void getvalue(double x, double a, double c) {
+       difference2=x;
+       apartment = a;
+       car = c;
     }    
 
 
